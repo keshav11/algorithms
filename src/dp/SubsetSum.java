@@ -13,7 +13,7 @@ public class SubsetSum {
         }
         return dp[num];
     }
-
+    
     public static void main(String[] args){
         for (int i = 1; i <= 10; i++) {
             System.out.println(isSubsetSum(new int[] {1, 2}, i));

@@ -20,23 +20,43 @@ public class RodCutting {
 
 		return dp[n] = max;
 	}
+//1
+//        2
+//        3
+//        4
+//        13
+//        14
+//        15
+//
+//        1
+//        1
+//        2
+//        1 1
+//        3
+//        1 1 1
+//        4
+//        1 1 1 1
+//        13
+//        5
+//        14
+//        1 5
+//        15
+//        1 1 5
+    public int rodCuttingBottomUp(int n) {
+		int[][] dp = new int[n+1][price.length];
+        for(int i = 1; i < price.length; i++) {
+            for(int j = 0; j <= n; j++) {
+                if(j >= i) {
+                    dp[j][i] = Math.max(dp[j-i][i]
+                            + price[i], dp[j][i-1]);
+                }
+                else {
+                    dp[j][i] = dp[j][i-1];
+                }
+            }
+        }
 
-	public int rodCuttingBottomUp(int n, int[] firstCut) {
-		int[] dp = new int[n + 1];
-		
-		dp[0] = 0; // base case
-		for (int i = 1; i <= n; i++) {
-			int max = Integer.MIN_VALUE;
-			for (int j = 1; j <= i; j++) {
-				if(max < price[j] + dp[i - j]) {
-					max = price[j] + dp[i - j];
-					firstCut[i] = j;
-				}				
-			}
-			dp[i] = max;
-		}
-
-		return dp[n];
+		return dp[n][price.length-1];
 	}
 	
 	public void printSolution(int n, int[] firstCut) {
@@ -61,21 +81,17 @@ public class RodCutting {
 		System.out.println(rc.rodCuttingTopDown(dp, 7));
 		// Bottom up
 		System.out.println();
-		int[] firstCut = new int[p.length+1];
-		System.out.println(rc.rodCuttingBottomUp(1,firstCut));
-		rc.printSolution(1,firstCut);
-		System.out.println(rc.rodCuttingBottomUp(2,firstCut));
-		rc.printSolution(2,firstCut);
-		System.out.println(rc.rodCuttingBottomUp(3,firstCut));
-		rc.printSolution(3,firstCut);
-		System.out.println(rc.rodCuttingBottomUp(4,firstCut));
-		rc.printSolution(4,firstCut);
-		System.out.println(rc.rodCuttingBottomUp(5,firstCut));
-		rc.printSolution(5,firstCut);
-		System.out.println(rc.rodCuttingBottomUp(6,firstCut));
-		rc.printSolution(6,firstCut);
-		System.out.println(rc.rodCuttingBottomUp(7,firstCut));
-		rc.printSolution(7,firstCut);
+		System.out.println(rc.rodCuttingBottomUp(1));
+		System.out.println(rc.rodCuttingBottomUp(2));
+        System.out.println(rc.rodCuttingBottomUp(3));
+        System.out.println(rc.rodCuttingBottomUp(4));
+        System.out.println(rc.rodCuttingBottomUp(5));
+        System.out.println(rc.rodCuttingBottomUp(6));
+        System.out.println(rc.rodCuttingBottomUp(7));
+        System.out.println(rc.rodCuttingBottomUp(8));
+        System.out.println(rc.rodCuttingBottomUp(9));
+        System.out.println(rc.rodCuttingBottomUp(10));
+
 	}
 
 }
