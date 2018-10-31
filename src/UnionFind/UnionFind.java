@@ -1,17 +1,17 @@
-package union_find;
+package UnionFind;
 
 public class UnionFind {
 
     private int numVerts; // number if vertices
     private int[][] edges; // edges
     private int[] parentNode; // parentNode pointer of each vertex
-    private int[] setSize; // size of the current tree
+    private int[] rank; // size of the current tree
 
     UnionFind(int nv, int[][] edges) {
         this.edges = edges;
         this.numVerts = nv;
         this.parentNode = new int[nv];
-        this.setSize = new int[nv];
+        this.rank = new int[nv];
 
         /*
          * initializing the parentNode pointers as self
@@ -27,24 +27,26 @@ public class UnionFind {
      * @param v
      */
     public void union(int u, int v) {
-        int uPar = find(u);
-        int vPar = find(v);
-        int uRank = setSize[uPar];
-        int vRank = setSize[vPar];
+        int par1 = find(u);
+        int par2 = find(v);
+        int uRank = rank[par1];
+        int vRank = rank[par2];
+        if(par1 == par2)
+            return;
 
         /**
          * assign the smaller set as the child
          * of the root of the larger set
          */
-        if(uRank > vRank) {
-            parentNode[vPar] = uPar;
+        if(rank[par1] > rank[par2]) {
+            parentNode[par2] = par1;
         }
-        else if(uRank < vRank) {
-            parentNode[uPar] = vPar;
+        else if(rank[par1] < rank[par2]) {
+            parentNode[par1] = par2;
         }
         else {
-            parentNode[uPar] = vPar;
-            setSize[vPar]++;
+            parentNode[par1] = par2;
+            rank[par2]++;
         }
     }
 

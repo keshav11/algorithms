@@ -1,4 +1,4 @@
-package helper;
+package Helper;
 
 public class MathHelper {
 

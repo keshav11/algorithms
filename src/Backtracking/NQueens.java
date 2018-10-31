@@ -1,4 +1,4 @@
-package backtracking;
+package Backtracking;
 
 import java.util.Set;
 import java.util.HashSet;

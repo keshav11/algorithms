@@ -1,6 +1,6 @@
-package dp;
+package DynamicProgramming;
 
-import helper.MathHelper;
+import Helper.MathHelper;
 
 public class MaxSizeSquareOneMatrix {
     int maxSizeSquareOneMatrix(int[][] mat) {

@@ -1,4 +1,4 @@
-package dp;
+package DynamicProgramming;
 
 public class MaxSumSubarray {
     int maxSubarray(int arr[]) {

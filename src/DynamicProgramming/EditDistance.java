@@ -1,4 +1,4 @@
-package dp;
+package DynamicProgramming;
 
 public class EditDistance {
     int editDistance(String str1, String str2) {
