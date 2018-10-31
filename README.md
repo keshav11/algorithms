@@ -1,3 +1,3 @@
 # algorithms
 
-Java implementations of algorithms and data structues
+Java implementations of algorithms and data structures
