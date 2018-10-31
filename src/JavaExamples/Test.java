@@ -1,4 +1,4 @@
-package java;
+package JavaExamples;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Test {
+
 	public static void main(String[] args) {
 
 		List<TestClass> list = new ArrayList<>();
@@ -28,6 +29,8 @@ public class Test {
 		for(TestClass tc: list) {
 			System.out.println(tc.val1);
 		}
+
+
 
 	}
 }
