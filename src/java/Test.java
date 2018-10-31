@@ -1,20 +1,33 @@
-package graph;
+package java;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Test {
 	public static void main(String[] args) {
-		Graph g = new Graph(7, true);		
-		g.addEdge(1, 2);
-		g.addEdge(1, 3);
-		g.addEdge(2, 4);
-		g.addEdge(3, 5);
-		g.addEdge(3, 6);
-		g.addEdge(5, 0);
-		
-		g.addEdge(6, 5);	
-		Traversal t = new Traversal(g);
-		t.doBFS(1);
-		t.refresh();
-		t.doDFS(1);	
-		
+
+		List<TestClass> list = new ArrayList<>();
+		for(int i = 1; i < 10; i++) {
+			list.add(new TestClass(i, 10-i));
+		}
+
+		Collections.sort(list, new Comparator<TestClass>() {
+			@Override
+			public int compare(TestClass o1, TestClass o2) {
+				if(o1.val1 > o2.val1)
+					return 1;
+				else if (o1.val1 < o2.val1)
+					return -1;
+				else
+					return 0;
+			}
+		});
+
+		for(TestClass tc: list) {
+			System.out.println(tc.val1);
+		}
+
 	}
 }

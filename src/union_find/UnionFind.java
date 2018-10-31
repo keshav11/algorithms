@@ -27,7 +27,6 @@ public class UnionFind {
      * @param v
      */
     public void union(int u, int v) {
-
         int uPar = find(u);
         int vPar = find(v);
         int uRank = setSize[uPar];
@@ -47,11 +46,9 @@ public class UnionFind {
             parentNode[uPar] = vPar;
             setSize[vPar]++;
         }
-
     }
 
     private int find(int currentNode) {
-
         /**
          * if the parent is the same as the currentNode,
          * currentNode is a rootNode

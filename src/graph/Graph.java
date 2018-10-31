@@ -1,7 +1,6 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Graph {
 	int numVertices;
